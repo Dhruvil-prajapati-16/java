@@ -1,48 +1,30 @@
-class myInsuffBalExcp  extends Exception {
-    public myInsuffBalExcp (String message) {
-        super(message);
-    }
-}
-
-class Account {
-    private double balance;
-
-    public Account(double initialBalance) {
-        this.balance = initialBalance;
-    }
-
-    public void deposit(double amount) {
-        balance += amount;
-        System.out.println("Deposit of Rs " + amount + " successful.");
-    }
-
-    public void withdraw(double amount) throws myInsuffBalExcp  {
-        if (balance >= amount) {
-            balance -= amount;
-            System.out.println("Withdrawal of Rs " + amount + " successful.");
-        }
-        else 
-        {
-            throw new myInsuffBalExcp ("Not Sufficient Funds. Available balance: Rs " + balance);
-        }
-    }
-
-    public double getBalance() {
-        return balance;
+class myInsuffBalExcp extends Exception {
+    public myInsuffBalExcp(String msg) {
+        super(msg);
     }
 }
 
 public class BankingApplication {
+    public static int withdraw(int balc, int amount) throws myInsuffBalExcp {
+        if (balc >= amount) {
+            balc -= amount;
+            System.out.println("Withdrawal of Rs " + amount + " successful.");
+            return balc;
+        } else {
+            throw new myInsuffBalExcp("Not Sufficient Funds.");
+        }
+    }
+
     public static void main(String[] args) {
-        Account account = new Account(25000);
+        int balc = 25000;
 
         try {
-            account.withdraw(20000);
-            account.withdraw(4000);
-            account.withdraw(2000); // This should throw an exception
-        } catch (myInsuffBalExcp  e) {
-       System.out.println("Exception caught: " + e.getMessage());
+            balc = withdraw(balc, 20000);
+            balc = withdraw(balc, 4000);
+            balc = withdraw(balc, 2000); // This should throw an exception
+        } catch (myInsuffBalExcp e) {
+            System.out.println("Exception caught: " + e.getMessage());
         }
-    System.out.println("Final balance: Rs " + account.getBalance());
+        System.out.println("Final balc: Rs " + balc);
     }
 }
