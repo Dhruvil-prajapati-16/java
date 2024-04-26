@@ -11,7 +11,7 @@ public class EvenOddThreads {
 class EvenPrinter implements Runnable {
     public void run() {
         for (int i = 2; i <= 200; i += 2) {
-            System.out.printf("%-5d | ", i);
+            System.out.printf("%-5d  ", i);
             try {
                 Thread.sleep(100); // Delay for better visualization
             } catch (InterruptedException e) {
@@ -24,7 +24,7 @@ class EvenPrinter implements Runnable {
 class OddPrinter implements Runnable {
     public void run() {
         for (int i = 1; i <= 199; i += 2) {
-            System.out.printf("%-5d |%n", i);
+            System.out.printf("%-5d %n", i);
             try {
                 Thread.sleep(100); // Delay for better visualization
             } catch (InterruptedException e) {
