@@ -39,7 +39,7 @@ public class BankingApplication {
         try {
             account.withdraw(20000);
             account.withdraw(4000);
-            account.withdraw(1001); // This should throw an exception
+            account.withdraw(2000); // This should throw an exception
         } catch (myInsuffBalExcp  e) {
        System.out.println("Exception caught: " + e.getMessage());
         }
