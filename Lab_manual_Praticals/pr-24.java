@@ -1,5 +1,5 @@
-class InsufficientFundsException extends Exception {
-    public InsufficientFundsException(String message) {
+class myInsuffBalExcp  extends Exception {
+    public myInsuffBalExcp (String message) {
         super(message);
     }
 }
@@ -16,14 +16,14 @@ class Account {
         System.out.println("Deposit of Rs " + amount + " successful.");
     }
 
-    public void withdraw(double amount) throws InsufficientFundsException {
+    public void withdraw(double amount) throws myInsuffBalExcp  {
         if (balance >= amount) {
             balance -= amount;
             System.out.println("Withdrawal of Rs " + amount + " successful.");
         }
         else 
         {
-            throw new InsufficientFundsException("Not Sufficient Funds. Available balance: Rs " + balance);
+            throw new myInsuffBalExcp ("Not Sufficient Funds. Available balance: Rs " + balance);
         }
     }
 
@@ -40,7 +40,7 @@ public class BankingApplication {
             account.withdraw(20000);
             account.withdraw(4000);
             account.withdraw(1001); // This should throw an exception
-        } catch (InsufficientFundsException e) {
+        } catch (myInsuffBalExcp  e) {
        System.out.println("Exception caught: " + e.getMessage());
         }
     System.out.println("Final balance: Rs " + account.getBalance());
