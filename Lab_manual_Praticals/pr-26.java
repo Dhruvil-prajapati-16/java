@@ -1,13 +1,12 @@
-public class TwoThreads extends Thread {
+public class Threads extends Thread {
     private String name;
     private int delay;
 
-    public TwoThreads(String name, int delay) {
+    public Threads(String name, int delay) {
         this.name = name;
         this.delay = delay;
     }
 
-    @Override
     public void run() {
         while (true) {
             System.out.println(name);
@@ -20,10 +19,10 @@ public class TwoThreads extends Thread {
     }
 
     public static void main(String[] args) {
-        Thread thread1 = new TwoThreads("Thread1", 1000);
-        Thread thread2 = new TwoThreads("Thread2", 2000);
+        Thread t1 = new Threads("Thread1", 1000);
+        Thread t2 = new Threads("Thread2", 2000);
 
-        thread1.start();
-        thread2.start();
+        t1.start();
+        t2.start();
     }
 }
