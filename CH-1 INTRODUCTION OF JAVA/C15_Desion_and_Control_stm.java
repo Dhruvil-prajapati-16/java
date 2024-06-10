@@ -64,6 +64,7 @@ public class C15_Desion_and_Control_stm  // class name
     		 i++;
     	 }
      }
+	 
      public void do_while() 
      {
     	 int i=0;

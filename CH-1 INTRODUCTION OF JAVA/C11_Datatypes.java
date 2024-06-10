@@ -12,15 +12,11 @@ public class C11_Datatypes {
 
         float f1 = 3.14f; // 4 bytes
         double d1 = 3.141592653589793; // 8 bytes
-
         // char Data types
         char c1 = 'A'; // 2 bytes (Unicode character)
-
         // String is not a primitive data type, it's a class in Java
          String str = "Hello"; // just for it dont count 
-
         // boolean Data types
-
         boolean bool = true; // 1 bit (typically stored as 1 byte)
 
         // Printing out the values of each variable
