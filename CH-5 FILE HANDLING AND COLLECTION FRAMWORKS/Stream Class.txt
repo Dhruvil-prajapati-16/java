@@ -1,0 +1,58 @@
+### Basics of Stream Classes in Java
+
+Stream classes in Java provide a way to read from and write to data sources such as files, arrays, and sockets. They are part of the `java.io` package and are categorized into two main types: byte streams and character streams.
+
+#### Byte Streams
+Byte streams handle I/O of raw binary data and are suitable for reading and writing binary files, such as images, audio files, and other types of non-text data. They use the following two abstract classes:
+- **`InputStream`**: This is the base class for all byte input streams. It provides methods to read bytes from a source.
+    - **Common subclasses**: `FileInputStream`, `ByteArrayInputStream`, `BufferedInputStream`.
+    - **Example**:
+      ```java
+      FileInputStream fis = new FileInputStream("input.dat");
+      int data = fis.read();
+      while (data != -1) {
+          System.out.print((char) data);
+          data = fis.read();
+      }
+      fis.close();
+      ```
+- **`OutputStream`**: This is the base class for all byte output streams. It provides methods to write bytes to a destination.
+    - **Common subclasses**: `FileOutputStream`, `ByteArrayOutputStream`, `BufferedOutputStream`.
+    - **Example**:
+      ```java
+      FileOutputStream fos = new FileOutputStream("output.dat");
+      fos.write(65); // Writes byte representation of 'A'
+      fos.close();
+      ```
+
+#### Character Streams
+Character streams handle I/O of characters and are ideal for text data, such as reading and writing text files. They use the following two abstract classes:
+- **`Reader`**: This is the base class for all character input streams. It provides methods to read characters, arrays, and lines.
+    - **Common subclasses**: `FileReader`, `BufferedReader`, `InputStreamReader`.
+    - **Example**:
+      ```java
+      FileReader fr = new FileReader("input.txt");
+      int data = fr.read();
+      while (data != -1) {
+          System.out.print((char) data);
+          data = fr.read();
+      }
+      fr.close();
+      ```
+- **`Writer`**: This is the base class for all character output streams. It provides methods to write characters, arrays, and strings.
+    - **Common subclasses**: `FileWriter`, `BufferedWriter`, `OutputStreamWriter`.
+    - **Example**:
+      ```java
+      FileWriter fw = new FileWriter("output.txt");
+      fw.write("Hello, World!");
+      fw.close();
+      ```
+
+### Summary
+- **Byte Streams**: Use `InputStream` and `OutputStream` classes for reading and writing raw binary data.
+- **Character Streams**: Use `Reader` and `Writer` classes for reading and writing text data.
+- **Common Use Cases**: 
+  - Byte streams: Binary files (images, audio).
+  - Character streams: Text files.
+
+Stream classes provide a simple and efficient way to handle input and output operations in Java, making it easier to work with various data sources and destinations.
