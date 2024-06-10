@@ -1,0 +1,69 @@
+In Java, there are two primary techniques to create and manage threads: implementing the `Runnable` interface and extending the `Thread` class. Both methods allow you to define the code that runs in the thread by overriding the `run()` method.
+
+### 1. Implementing the `Runnable` Interface
+
+This technique involves creating a class that implements the `Runnable` interface. The `Runnable` interface has a single method, `run()`, which contains the code to be executed by the thread. 
+
+#### Steps:
+1. **Implement the `Runnable` interface**: Create a class that implements the `Runnable` interface and override the `run()` method.
+2. **Create a `Thread` object**: Instantiate a `Thread` object, passing the `Runnable` instance as an argument to the `Thread` constructor.
+3. **Start the thread**: Call the `start()` method on the `Thread` object.
+
+#### Example:
+```java
+class MyRunnable implements Runnable {
+    public void run() {
+        for (int i = 0; i < 5; i++) {
+            System.out.println("Runnable running: " + i);
+        }
+    }
+}
+
+public class RunnableExample {
+    public static void main(String[] args) {
+        MyRunnable myRunnable = new MyRunnable();
+        Thread thread = new Thread(myRunnable);
+        thread.start();
+    }
+}
+```
+
+### 2. Extending the `Thread` Class
+
+This technique involves creating a class that extends the `Thread` class. You must override the `run()` method to define the code to be executed by the thread.
+
+#### Steps:
+1. **Extend the `Thread` class**: Create a class that extends the `Thread` class and override the `run()` method.
+2. **Create an instance of the class**: Instantiate the class that extends `Thread`.
+3. **Start the thread**: Call the `start()` method on the instance.
+
+#### Example:
+```java
+class MyThread extends Thread {
+    public void run() {
+        for (int i = 0; i < 5; i++) {
+            System.out.println("Thread running: " + i);
+        }
+    }
+}
+
+public class ThreadExample {
+    public static void main(String[] args) {
+        MyThread myThread = new MyThread();
+        myThread.start();
+    }
+}
+```
+
+### Comparison of Both Techniques
+
+- **Flexibility**: Implementing `Runnable` is more flexible because your class can extend another class if needed (Java doesn't support multiple inheritance).
+- **Resource Sharing**: When implementing `Runnable`, multiple threads can share the same `Runnable` instance, making it easier to share resources between threads.
+- **Simplicity**: Extending `Thread` might be simpler if you don't need to extend another class and want to quickly create a thread.
+
+### Summary
+
+- **Implementing `Runnable`**: More flexible, better for sharing resources.
+- **Extending `Thread`**: Simpler if no other superclass is needed.
+
+Both techniques are widely used and choosing one depends on the specific requirements of your application.
