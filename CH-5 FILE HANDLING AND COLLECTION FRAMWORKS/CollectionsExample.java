@@ -6,9 +6,11 @@ public class CollectionsExample {
         ArrayList<String> arrayList = new ArrayList<>();
         arrayList.add("Java");
         arrayList.add("C++");
+        arrayList.add("C++");
         
         System.out.println("ArrayList:");
-        for (String arraydata : arrayList) {
+        for (String arraydata : arrayList)
+         {
             System.out.println(arraydata);
         }
     
@@ -16,54 +18,85 @@ public class CollectionsExample {
         LinkedList<String> linkedList = new LinkedList<>();
         linkedList.add("Java");
         linkedList.add("C++");
+        linkedList.add("C++");
         
         System.out.println("LinkedList:");
         for (String linkdata : linkedList) {
             System.out.println(linkdata);
         }
-
+/*
+ ArrayList:
+Java
+C++
+C++
+LinkedList:
+Java
+C++
+C++
+ */
         // HashSet example
         HashSet<String> hashSet = new HashSet<>();
         hashSet.add("Java");
         hashSet.add("C++");
-        hashSet.add("Java"); // Duplicate element
+        hashSet.add("Java"); 
         
         System.out.println("HashSet:");
-        for (String hashdata : hashSet) {
+        for (String hashdata : hashSet) 
+        {
             System.out.println(hashdata);
         }
+//         HashSet:
+// Java
+// C++
         
         // TreeSet example
         TreeSet<String> treeSet = new TreeSet<>();
         treeSet.add("Java");
         treeSet.add("C++");
-        treeSet.add("Python");
         
         System.out.println("TreeSet:");
-        for (String treeData : treeSet) {
+        for (String treeData : treeSet) 
+        {
             System.out.println(treeData);
         }
+
+        /* 
+         TreeSet:
+          C++
+          Java
+        */
 
         // HashMap example
         HashMap<Integer, String> hashMap = new HashMap<>();
         hashMap.put(1, "Java");
         hashMap.put(2, "C++");
-        hashMap.put(3, "Python");
         
-        System.out.println("HashMap:");
-        for (Map.Entry<Integer, String> entry : hashMap.entrySet()) {
-            System.out.println(entry.getKey() + ": " + entry.getValue());
-        }
+        System.out.println("HashMap:" + hashMap);
+
 
         // TreeMap example
-        TreeMap<Integer, String> treeMap = new TreeMap<>();
+        TreeMap<Integer, String> treeMap = new TreeMap<>(); // HashMap:{1=Java, 2=C++, 3=Python}
         treeMap.put(1, "Java");
         treeMap.put(2, "C++");
-        treeMap.put(3, "Python");
         
-        System.out.println("TreeMap:");
-        for (Map.Entry<Integer, String> entry : treeMap.entrySet()) {
-            System.out.println(entry.getKey() + ": " + entry.getValue());
-        }
+        System.out.println("TreeMap:" + treeMap); // TreeMap:{1=Java, 2=C++, 3=Python}
+
     }
 }
+/*
+ ArrayList:
+Java
+C++
+C++
+LinkedList:
+Java
+C++
+C++
+HashSet:
+Java
+C++
+TreeSet:
+C++
+Java
+
+ */
